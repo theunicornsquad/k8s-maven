@@ -27,6 +27,9 @@ jobs:
     - name: Push docker image for Debian
       run: GIT_BRANCH=${GITHUB_REF##*/} make docker_push_debian
 
+    - name: Docker login
+      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+
     - name: Build docker image for Centos
       run: GIT_BRANCH=${GITHUB_REF##*/} make docker_build_centos
 
