@@ -21,6 +21,9 @@ RUN apt-get update && \
 
 FROM debian:stretch-slim
 
+RUN rm -rf /opt/graalvm/*src.zip \
+    /opt/graalvm/sample/
+
 ENV JAVA_HOME /opt/graalvm
 ENV GRAALVM_HOME /opt/graalvm
 ENV NATIVE_IMAGE_CONFIG_FILE $GRAALVM_HOME/native-image.properties

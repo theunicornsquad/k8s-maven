@@ -22,6 +22,11 @@ RUN curl ${MAVEN_URL} -o /tmp/maven.tar.gz && \
     mv /tmp/graalvm-ce-java8-${GRAAL_VERSION} /opt/graalvm && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
+
+
+RUN rm -rf /opt/graalvm/*src.zip \
+    /opt/graalvm/sample/
+    
 LABEL org.label-schema.name="graalvm-playground" \
       org.label-schema.description="A docker image with GraalVM, JDK 1.8, Node, Maven and Git" \
       org.label-schema.vcs-url="https://github.com/unicornsquald/k8s-maven" 
