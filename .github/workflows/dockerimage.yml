@@ -1,0 +1,37 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+      - 'v*'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Docker login
+      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+
+    - name: Build docker image for Debian
+      run: GIT_BRANCH=${GITHUB_REF##*/} make docker_build_debian
+
+    - name: Test docker image for Debian
+      run: GIT_BRANCH=${GITHUB_REF##*/} make test_debian
+
+    - name: Push docker image for Debian
+      run: GIT_BRANCH=${GITHUB_REF##*/} make docker_push_debian
+
+    - name: Build docker image for Centos
+      run: GIT_BRANCH=${GITHUB_REF##*/} make docker_build_centos
+
+    - name: Test docker image for Centos
+      run: GIT_BRANCH=${GITHUB_REF##*/} make test_centos
+
+    - name: Push docker image for Centos
+      run: GIT_BRANCH=${GITHUB_REF##*/} make docker_push_centos  
