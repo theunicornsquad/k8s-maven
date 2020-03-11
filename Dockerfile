@@ -20,9 +20,6 @@ RUN curl ${MAVEN_URL} -o /tmp/maven.tar.gz && \
     curl -L ${GRAAL_CE_URL} -o /tmp/graalvm.tar.gz && \
     tar -zxf /tmp/graalvm.tar.gz -C /tmp && \
     mv /tmp/graalvm-ce-java8-${GRAAL_VERSION} /opt/graalvm && \
-    /opt/graalvm/bin/gu install native-image llvm-toolchain && \
-    mkdir -p /root/.native-image && \
-    echo "NativeImageArgs = --no-server" > $GRAALVM_HOME/native-image.properties && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
@@ -89,5 +86,9 @@ ENV PATH /opt/apache-maven/bin:$JAVA_HOME/jre/bin:$GRAALVM_HOME/bin:$PATH
 
 COPY --from=build /opt/graalvm /opt/graalvm
 COPY --from=build /opt/apache-maven /opt/apache-maven
+
+RUN /opt/graalvm/bin/gu install native-image llvm-toolchain && \
+    mkdir -p /root/.native-image && \
+    echo "NativeImageArgs = --no-server" > $GRAALVM_HOME/native-image.properties
 
 WORKDIR /root
