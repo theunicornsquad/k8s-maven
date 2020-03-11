@@ -19,9 +19,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-RUN rm -rf /opt/graalvm/*src.zip \
-        /opt/graalvm/sample/
-
 FROM debian:stretch-slim
 
 ENV JAVA_HOME /opt/graalvm
