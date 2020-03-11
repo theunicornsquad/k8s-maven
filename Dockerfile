@@ -25,51 +25,6 @@ RUN curl ${MAVEN_URL} -o /tmp/maven.tar.gz && \
 
 
  RUN rm -rf /opt/graalvm/*src.zip \
-    /opt/graalvm/lib/missioncontrol \
-    /opt/graalvm/lib/visualvm \
-    /opt/graalvm/lib/*javafx* \
-    /opt/graalvm/jre/plugin \
-    /opt/graalvm/jre/bin/javaws \
-    /opt/graalvm/jre/bin/jjs \
-    /opt/graalvm/jre/bin/orbd \
-    /opt/graalvm/jre/bin/pack200 \
-    /opt/graalvm/jre/bin/policytool \
-    /opt/graalvm/jre/bin/rmid \
-    /opt/graalvm/jre/bin/rmiregistry \
-    /opt/graalvm/jre/bin/servertool \
-    /opt/graalvm/jre/bin/tnameserv \
-    /opt/graalvm/jre/bin/unpack200 \
-    /opt/graalvm/jre/lib/javaws.jar \
-    /opt/graalvm/jre/lib/deploy* \
-    /opt/graalvm/jre/lib/desktop \
-    /opt/graalvm/jre/lib/*javafx* \
-    /opt/graalvm/jre/lib/*jfx* \
-    /opt/graalvm/jre/lib/amd64/libdecora_sse.so \
-    /opt/graalvm/jre/lib/amd64/libprism_*.so \
-    /opt/graalvm/jre/lib/amd64/libfxplugins.so \
-    /opt/graalvm/jre/lib/amd64/libglass.so \
-    /opt/graalvm/jre/lib/amd64/libgstreamer-lite.so \
-    /opt/graalvm/jre/lib/amd64/libjavafx*.so \
-    /opt/graalvm/jre/lib/amd64/libjfx*.so \
-    /opt/graalvm/jre/lib/ext/jfxrt.jar \
-    /opt/graalvm/jre/lib/ext/nashorn.jar \
-    /opt/graalvm/jre/lib/oblique-fonts \
-    /opt/graalvm/jre/lib/plugin.jar \
-    /opt/graalvm/jre/languages/ \
-    /opt/graalvm/jre/lib/polyglot/ \
-    /opt/graalvm/jre/lib/installer/ \
-    /opt/graalvm/jre/lib/svm/ \
-    /opt/graalvm/jre/lib/truffle/ \
-    /opt/graalvm/jre/lib/jvmci \
-    /opt/graalvm/jre/lib/installer \
-    /opt/graalvm/jre/tools/ \
-    /opt/graalvm/jre/bin/js \
-    /opt/graalvm/jre/bin/gu \
-    /opt/graalvm/jre/bin/lli \
-    /opt/graalvm/jre/bin/native-image \
-    /opt/graalvm/jre/bin/node \
-    /opt/graalvm/jre/bin/npm \
-    /opt/graalvm/jre/bin/polyglot \
     /opt/graalvm/sample/
 
 FROM centos:centos7
