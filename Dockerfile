@@ -24,10 +24,8 @@ RUN curl ${MAVEN_URL} -o /tmp/maven.tar.gz && \
     rm -rf /tmp/*
 
 
- RUN rm -rf /opt/graalvm/*src.zip \
+RUN rm -rf /opt/graalvm/*src.zip \
     /opt/graalvm/sample/
-
-FROM centos:centos7
 
 LABEL org.label-schema.name="graalvm-playground" \
       org.label-schema.description="A docker image with GraalVM, JDK 1.8, Node, Maven and Git" \
